@@ -28,11 +28,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.testTag
 import com.mickyzg.rickandmorty.presentation.component.EmptyContent
 import com.mickyzg.rickandmorty.presentation.component.ErrorContent
 import com.mickyzg.rickandmorty.presentation.component.LoadingIndicator
 import com.mickyzg.rickandmorty.presentation.component.LocationCard
 import com.mickyzg.rickandmorty.presentation.component.ShimmerCardList
+import com.mickyzg.rickandmorty.presentation.component.TestTags
 import com.mickyzg.rickandmorty.presentation.screen.preview.LocationListPreviewProvider
 import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.locationList.LocationListAction
@@ -85,7 +87,7 @@ fun LocationListScreen(
                         }
                     },
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp)
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp).testTag(TestTags.LOCATION_SEARCH_FIELD)
                 )
             }
         },
@@ -107,7 +109,7 @@ fun LocationListScreen(
                         subtitle = if (uiState.searchQuery.isNotBlank())
                             stringResource(R.string.empty_no_results, uiState.searchQuery) else stringResource(R.string.empty_pull_to_load_locations)
                     )
-                else -> LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
+                else -> LazyColumn(state = listState, modifier = Modifier.fillMaxSize().testTag(TestTags.LOCATION_LIST)) {
                     items(items = uiState.locations, key = { it.id }) { location ->
                         LocationCard(location = location, onClick = { onLocationClick(location.id) })
                     }

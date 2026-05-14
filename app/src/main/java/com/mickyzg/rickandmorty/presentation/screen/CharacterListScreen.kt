@@ -26,6 +26,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.mickyzg.rickandmorty.presentation.component.CharacterCard
@@ -33,6 +34,7 @@ import com.mickyzg.rickandmorty.presentation.component.EmptyContent
 import com.mickyzg.rickandmorty.presentation.component.ErrorContent
 import com.mickyzg.rickandmorty.presentation.component.LoadingIndicator
 import com.mickyzg.rickandmorty.presentation.component.ShimmerCardList
+import com.mickyzg.rickandmorty.presentation.component.TestTags
 import com.mickyzg.rickandmorty.presentation.screen.preview.CharacterListPreviewProvider
 import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.characterList.CharacterListAction
@@ -87,7 +89,7 @@ fun CharacterListScreen(
                         }
                     },
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp)
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp).testTag(TestTags.SEARCH_FIELD)
                 )
             }
         },
@@ -110,7 +112,7 @@ fun CharacterListScreen(
                             stringResource(R.string.empty_no_results, uiState.searchQuery)
                         else stringResource(R.string.empty_pull_to_load_characters)
                     )
-                else -> LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
+                else -> LazyColumn(state = listState, modifier = Modifier.fillMaxSize().testTag(TestTags.CHARACTER_LIST)) {
                     items(items = uiState.characters, key = { it.id }) { character ->
                         CharacterCard(
                             character = character,

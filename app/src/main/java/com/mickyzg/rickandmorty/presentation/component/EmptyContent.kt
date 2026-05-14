@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.mickyzg.rickandmorty.R
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.testTag
 
 /**
  * Full-screen empty state shown when the list has no items to display.
@@ -42,7 +43,8 @@ fun EmptyContent(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(32.dp),
+                .padding(32.dp)
+                .testTag(TestTags.EMPTY_CONTENT),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {

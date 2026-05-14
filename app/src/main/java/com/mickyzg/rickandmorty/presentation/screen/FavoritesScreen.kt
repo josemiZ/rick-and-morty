@@ -10,10 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import com.mickyzg.rickandmorty.presentation.component.CharacterCard
 import com.mickyzg.rickandmorty.presentation.component.EmptyContent
 import com.mickyzg.rickandmorty.presentation.component.LoadingIndicator
+import com.mickyzg.rickandmorty.presentation.component.TestTags
 import com.mickyzg.rickandmorty.presentation.screen.preview.FavoritesPreviewProvider
 import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.favorites.FavoritesAction
@@ -41,7 +43,7 @@ fun FavoritesScreen(
                 subtitle = stringResource(R.string.empty_favorites_subtitle)
             )
             else -> LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(innerPadding)
+                modifier = Modifier.fillMaxSize().padding(innerPadding).testTag(TestTags.FAVORITES_LIST)
             ) {
                 items(items = uiState.favorites, key = { it.id }) { character ->
                     CharacterCard(

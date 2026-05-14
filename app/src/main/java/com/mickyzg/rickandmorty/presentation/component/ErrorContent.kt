@@ -23,6 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.mickyzg.rickandmorty.R
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.testTag
 
 /**
  * Full-screen error state shown when [items] is empty and a network error occurred.
@@ -43,7 +44,8 @@ fun ErrorContent(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(32.dp),
+                .padding(32.dp)
+                .testTag(TestTags.ERROR_CONTENT),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {

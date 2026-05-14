@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -51,7 +52,8 @@ fun CharacterCard(
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 6.dp)
             .clickable(onClick = onClick)
-            .animateContentSize(),
+            .animateContentSize()
+            .testTag(TestTags.characterCard(character.id)),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
@@ -86,7 +88,7 @@ fun CharacterCard(
                     modifier = Modifier.padding(top = 4.dp)
                 )
             }
-            IconButton(onClick = onFavoriteClick) {
+            IconButton(onClick = onFavoriteClick, modifier = Modifier.testTag(TestTags.favoriteButton(character.id))) {
                 Icon(
                     imageVector = if (character.isFavorite) Icons.Filled.Favorite
                     else Icons.Filled.FavoriteBorder,
