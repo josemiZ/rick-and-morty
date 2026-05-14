@@ -22,7 +22,7 @@ import com.mickyzg.rickandmorty.R
 /** Defines a single item rendered in [BottomNavBar]. */
 private data class BottomNavItem(
     val route: Route,
-    @StringRes val labelRes: Int,
+    @param:StringRes val labelRes: Int,
     val icon: ImageVector
 )
 
