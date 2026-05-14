@@ -38,6 +38,8 @@ import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.characterList.CharacterListAction
 import com.mickyzg.rickandmorty.presentation.viewmodel.characterList.CharacterListUiState
 import com.mickyzg.rickandmorty.ui.theme.RickAndMortyTheme
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 private const val LOAD_MORE_THRESHOLD = 4
 
@@ -71,7 +73,7 @@ fun CharacterListScreen(
     Scaffold(
         topBar = {
             Column {
-                TopAppBar(title = { Text("Characters") })
+                TopAppBar(title = { Text(stringResource(R.string.nav_characters)) })
                 OutlinedTextField(
                     value = uiState.searchQuery,
                     onValueChange = { onAction(CharacterListAction.SearchQueryChanged(it)) },
@@ -80,7 +82,7 @@ fun CharacterListScreen(
                     trailingIcon = {
                         if (uiState.searchQuery.isNotEmpty()) {
                             IconButton(onClick = { onAction(CharacterListAction.SearchQueryChanged("")) }) {
-                                Icon(Icons.Default.Close, contentDescription = "Clear search")
+                                Icon(Icons.Default.Close, contentDescription = stringResource(R.string.cd_clear_search))
                             }
                         }
                     },
@@ -103,10 +105,10 @@ fun CharacterListScreen(
                     ErrorContent(message = uiState.error, onRetry = { onAction(CharacterListAction.Retry) })
                 uiState.characters.isEmpty() ->
                     EmptyContent(
-                        title = "No characters found",
+                        title = stringResource(R.string.empty_characters_title),
                         subtitle = if (uiState.searchQuery.isNotBlank())
-                            "No results for \"${uiState.searchQuery}\""
-                        else "Pull down to load characters."
+                            stringResource(R.string.empty_no_results, uiState.searchQuery)
+                        else stringResource(R.string.empty_pull_to_load_characters)
                     )
                 else -> LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
                     items(items = uiState.characters, key = { it.id }) { character ->

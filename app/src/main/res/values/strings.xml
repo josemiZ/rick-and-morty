@@ -1,3 +1,73 @@
 <resources>
-    <string name="app_name">RickAndMorty</string>
+    <!-- App -->
+    <string name="app_name">Rick &amp; Morty</string>
+
+    <!-- Bottom navigation labels -->
+    <string name="nav_characters">Characters</string>
+    <string name="nav_locations">Locations</string>
+    <string name="nav_episodes">Episodes</string>
+    <string name="nav_favorites">Favorites</string>
+
+    <!-- TopAppBar fallback titles for detail screens -->
+    <string name="title_character">Character</string>
+    <string name="title_episode">Episode</string>
+    <string name="title_location">Location</string>
+
+    <!-- Content descriptions (accessibility) -->
+    <string name="cd_back">Back</string>
+    <string name="cd_toggle_favorite">Toggle favorite</string>
+    <string name="cd_clear_search">Clear search</string>
+    <string name="cd_remove_from_favorites">Remove from favorites</string>
+    <string name="cd_add_to_favorites">Add to favorites</string>
+
+    <!-- Search field placeholders -->
+    <string name="search_placeholder_characters">Search characters…</string>
+    <string name="search_placeholder_episodes">Search episodes…</string>
+    <string name="search_placeholder_locations">Search locations…</string>
+
+    <!-- ErrorContent -->
+    <string name="error_something_went_wrong">Something went wrong</string>
+    <string name="error_retry">Retry</string>
+
+    <!-- EmptyContent defaults -->
+    <string name="empty_default_title">Nothing here</string>
+    <string name="empty_default_subtitle">Try a different search or pull to refresh.</string>
+
+    <!-- List empty states -->
+    <string name="empty_characters_title">No characters found</string>
+    <string name="empty_episodes_title">No episodes found</string>
+    <string name="empty_locations_title">No locations found</string>
+    <string name="empty_no_results">No results for &quot;%1$s&quot;</string>
+    <string name="empty_pull_to_load_characters">Pull down to load characters.</string>
+    <string name="empty_pull_to_load_episodes">Pull down to load episodes.</string>
+    <string name="empty_pull_to_load_locations">Pull down to load locations.</string>
+
+    <!-- Favorites empty state -->
+    <string name="empty_favorites_title">No favorites yet</string>
+    <string name="empty_favorites_subtitle">Tap the heart icon on any character to save it here.</string>
+
+    <!-- Detail "not found" states -->
+    <string name="empty_episode_not_found">Episode not found</string>
+    <string name="empty_location_not_found">Location not found</string>
+
+    <!-- Character detail row labels -->
+    <string name="detail_species">Species</string>
+    <string name="detail_gender">Gender</string>
+    <string name="detail_type">Type</string>
+    <string name="detail_origin">Origin</string>
+    <string name="detail_last_known_location">Last known location</string>
+    <string name="detail_episodes">Episodes</string>
+
+    <!-- Episode detail row labels -->
+    <string name="detail_air_date">Air date</string>
+    <string name="detail_characters">Characters</string>
+
+    <!-- Location detail row labels -->
+    <string name="detail_dimension">Dimension</string>
+    <string name="detail_residents">Residents</string>
+
+    <!-- Status chip labels -->
+    <string name="status_alive">Alive</string>
+    <string name="status_dead">Dead</string>
+    <string name="status_unknown">Unknown</string>
 </resources>

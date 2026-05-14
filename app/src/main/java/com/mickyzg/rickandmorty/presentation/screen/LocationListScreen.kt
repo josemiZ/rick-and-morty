@@ -38,6 +38,8 @@ import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.locationList.LocationListAction
 import com.mickyzg.rickandmorty.presentation.viewmodel.locationList.LocationListUiState
 import com.mickyzg.rickandmorty.ui.theme.RickAndMortyTheme
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 private const val LOAD_MORE_THRESHOLD = 4
 
@@ -69,7 +71,7 @@ fun LocationListScreen(
     Scaffold(
         topBar = {
             Column {
-                TopAppBar(title = { Text("Locations") })
+                TopAppBar(title = { Text(stringResource(R.string.nav_locations)) })
                 OutlinedTextField(
                     value = uiState.searchQuery,
                     onValueChange = { onAction(LocationListAction.SearchQueryChanged(it)) },
@@ -78,7 +80,7 @@ fun LocationListScreen(
                     trailingIcon = {
                         if (uiState.searchQuery.isNotEmpty()) {
                             IconButton(onClick = { onAction(LocationListAction.SearchQueryChanged("")) }) {
-                                Icon(Icons.Default.Close, contentDescription = "Clear search")
+                                Icon(Icons.Default.Close, contentDescription = stringResource(R.string.cd_clear_search))
                             }
                         }
                     },
@@ -101,9 +103,9 @@ fun LocationListScreen(
                     ErrorContent(message = uiState.error, onRetry = { onAction(LocationListAction.Retry) })
                 uiState.locations.isEmpty() ->
                     EmptyContent(
-                        title = "No locations found",
+                        title = stringResource(R.string.empty_locations_title),
                         subtitle = if (uiState.searchQuery.isNotBlank())
-                            "No results for \"${uiState.searchQuery}\"" else "Pull down to load locations."
+                            stringResource(R.string.empty_no_results, uiState.searchQuery) else stringResource(R.string.empty_pull_to_load_locations)
                     )
                 else -> LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
                     items(items = uiState.locations, key = { it.id }) { location ->

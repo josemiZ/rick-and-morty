@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.mickyzg.rickandmorty.domain.model.CharacterStatus
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 private val AliveColor = Color(0xFF4CAF50)
 private val DeadColor = Color(0xFFF44336)
@@ -23,9 +25,9 @@ fun StatusChip(
     modifier: Modifier = Modifier
 ) {
     val (containerColor, label) = when (status) {
-        CharacterStatus.ALIVE -> AliveColor.copy(alpha = 0.15f) to "Alive"
-        CharacterStatus.DEAD -> DeadColor.copy(alpha = 0.15f) to "Dead"
-        CharacterStatus.UNKNOWN -> MaterialTheme.colorScheme.surfaceVariant to "Unknown"
+        CharacterStatus.ALIVE -> AliveColor.copy(alpha = 0.15f) to stringResource(R.string.status_alive)
+        CharacterStatus.DEAD -> DeadColor.copy(alpha = 0.15f) to stringResource(R.string.status_dead)
+        CharacterStatus.UNKNOWN -> MaterialTheme.colorScheme.surfaceVariant to stringResource(R.string.status_unknown)
     }
     val textColor = when (status) {
         CharacterStatus.ALIVE -> AliveColor

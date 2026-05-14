@@ -37,6 +37,8 @@ import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.characterDetail.CharacterDetailAction
 import com.mickyzg.rickandmorty.presentation.viewmodel.characterDetail.CharacterDetailUiState
 import com.mickyzg.rickandmorty.ui.theme.RickAndMortyTheme
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,10 +53,10 @@ fun CharacterDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(character?.name ?: "Character") },
+                title = { Text(character?.name ?: stringResource(R.string.title_character)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.cd_back))
                     }
                 },
                 actions = {
@@ -63,7 +65,7 @@ fun CharacterDetailScreen(
                             Icon(
                                 imageVector = if (character.isFavorite) Icons.Filled.Favorite
                                 else Icons.Filled.FavoriteBorder,
-                                contentDescription = "Toggle favorite",
+                                contentDescription = stringResource(R.string.cd_toggle_favorite),
                                 tint = if (character.isFavorite) Color(0xFFF44336)
                                 else MaterialTheme.colorScheme.onSurface
                             )
@@ -103,12 +105,12 @@ fun CharacterDetailScreen(
                         Spacer(Modifier.height(16.dp))
                         HorizontalDivider()
                         Spacer(Modifier.height(12.dp))
-                        DetailRow("Species", character.species)
-                        character.gender?.let { DetailRow("Gender", it.name.lowercase().replaceFirstChar { c -> c.uppercase() }) }
-                        character.type?.let { if (it.isNotBlank()) DetailRow("Type", it) }
-                        character.origin?.let { DetailRow("Origin", it.name) }
-                        character.location?.let { DetailRow("Last known location", it.name) }
-                        character.episodeUrls?.let { DetailRow("Episodes", it.size.toString()) }
+                        DetailRow(stringResource(R.string.detail_species), character.species)
+                        character.gender?.let { DetailRow(stringResource(R.string.detail_gender), it.name.lowercase().replaceFirstChar { c -> c.uppercase() }) }
+                        character.type?.let { if (it.isNotBlank()) DetailRow(stringResource(R.string.detail_type), it) }
+                        character.origin?.let { DetailRow(stringResource(R.string.detail_origin), it.name) }
+                        character.location?.let { DetailRow(stringResource(R.string.detail_last_known_location), it.name) }
+                        character.episodeUrls?.let { DetailRow(stringResource(R.string.detail_episodes), it.size.toString()) }
                         if (uiState.isLoading) { Spacer(Modifier.height(8.dp)); LoadingIndicator() }
                     }
                 }

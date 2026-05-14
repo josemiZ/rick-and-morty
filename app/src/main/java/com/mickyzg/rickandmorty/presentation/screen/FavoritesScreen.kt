@@ -19,6 +19,8 @@ import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.favorites.FavoritesAction
 import com.mickyzg.rickandmorty.presentation.viewmodel.favorites.FavoritesUiState
 import com.mickyzg.rickandmorty.ui.theme.RickAndMortyTheme
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,14 +31,14 @@ fun FavoritesScreen(
     modifier: Modifier = Modifier
 ) {
     Scaffold(
-        topBar = { TopAppBar(title = { Text("Favorites") }) },
+        topBar = { TopAppBar(title = { Text(stringResource(R.string.nav_favorites)) }) },
         modifier = modifier
     ) { innerPadding ->
         when {
             uiState.isLoading -> LoadingIndicator(modifier = Modifier.fillMaxSize())
             uiState.favorites.isEmpty() -> EmptyContent(
-                title = "No favorites yet",
-                subtitle = "Tap the heart icon on any character to save it here."
+                title = stringResource(R.string.empty_favorites_title),
+                subtitle = stringResource(R.string.empty_favorites_subtitle)
             )
             else -> LazyColumn(
                 modifier = Modifier.fillMaxSize().padding(innerPadding)

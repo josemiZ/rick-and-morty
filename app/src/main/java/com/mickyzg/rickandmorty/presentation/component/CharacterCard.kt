@@ -30,6 +30,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.mickyzg.rickandmorty.domain.model.Character
+import com.mickyzg.rickandmorty.R
 
 /**
  * Card representing a single [Character] in the list or favorites screens.
@@ -89,8 +90,8 @@ fun CharacterCard(
                 Icon(
                     imageVector = if (character.isFavorite) Icons.Filled.Favorite
                     else Icons.Filled.FavoriteBorder,
-                    contentDescription = if (character.isFavorite) "Remove from favorites"
-                    else "Add to favorites",
+                    contentDescription = if (character.isFavorite) stringResource(R.string.cd_remove_from_favorites)
+                    else stringResource(R.string.cd_add_to_favorites),
                     tint = if (character.isFavorite) Color(0xFFF44336)
                     else MaterialTheme.colorScheme.onSurfaceVariant
                 )

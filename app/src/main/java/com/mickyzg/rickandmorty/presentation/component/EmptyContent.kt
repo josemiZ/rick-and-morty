@@ -20,6 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 /**
  * Full-screen empty state shown when the list has no items to display.
@@ -27,8 +29,8 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun EmptyContent(
-    title: String = "Nothing here",
-    subtitle: String = "Try a different search or pull to refresh.",
+    title: String = stringResource(R.string.empty_default_title),
+    subtitle: String = stringResource(R.string.empty_default_subtitle),
     visible: Boolean = true,
     modifier: Modifier = Modifier
 ) {

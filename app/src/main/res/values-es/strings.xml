@@ -1,0 +1,74 @@
+<resources>
+    <!-- App -->
+    <string name="app_name">Rick &amp; Morty</string>
+
+    <!-- Etiquetas de navegación inferior -->
+    <string name="nav_characters">Personajes</string>
+    <string name="nav_locations">Ubicaciones</string>
+    <string name="nav_episodes">Episodios</string>
+    <string name="nav_favorites">Favoritos</string>
+
+    <!-- Títulos de barra superior (detalle — fallback) -->
+    <string name="title_character">Personaje</string>
+    <string name="title_episode">Episodio</string>
+    <string name="title_location">Ubicación</string>
+
+    <!-- Descripciones de contenido (accesibilidad) -->
+    <string name="cd_back">Atrás</string>
+    <string name="cd_toggle_favorite">Alternar favorito</string>
+    <string name="cd_clear_search">Limpiar búsqueda</string>
+    <string name="cd_remove_from_favorites">Quitar de favoritos</string>
+    <string name="cd_add_to_favorites">Agregar a favoritos</string>
+
+    <!-- Marcadores de texto en búsqueda -->
+    <string name="search_placeholder_characters">Buscar personajes…</string>
+    <string name="search_placeholder_episodes">Buscar episodios…</string>
+    <string name="search_placeholder_locations">Buscar ubicaciones…</string>
+
+    <!-- ErrorContent -->
+    <string name="error_something_went_wrong">Algo salió mal</string>
+    <string name="error_retry">Reintentar</string>
+
+    <!-- EmptyContent por defecto -->
+    <string name="empty_default_title">Nada aquí</string>
+    <string name="empty_default_subtitle">Intenta otra búsqueda o desliza hacia abajo para actualizar.</string>
+
+    <!-- Estados vacíos de listas -->
+    <string name="empty_characters_title">No se encontraron personajes</string>
+    <string name="empty_episodes_title">No se encontraron episodios</string>
+    <string name="empty_locations_title">No se encontraron ubicaciones</string>
+    <string name="empty_no_results">Sin resultados para &quot;%1$s&quot;</string>
+    <string name="empty_pull_to_load_characters">Desliza hacia abajo para cargar personajes.</string>
+    <string name="empty_pull_to_load_episodes">Desliza hacia abajo para cargar episodios.</string>
+    <string name="empty_pull_to_load_locations">Desliza hacia abajo para cargar ubicaciones.</string>
+
+    <!-- Estado vacío de favoritos -->
+    <string name="empty_favorites_title">Aún no tienes favoritos</string>
+    <string name="empty_favorites_subtitle">Toca el ícono de corazón en cualquier personaje para guardarlo aquí.</string>
+
+    <!-- Estados de detalle no encontrado -->
+    <string name="empty_episode_not_found">Episodio no encontrado</string>
+    <string name="empty_location_not_found">Ubicación no encontrada</string>
+
+    <!-- Etiquetas de filas en detalle de personaje -->
+    <string name="detail_species">Especie</string>
+    <string name="detail_gender">Género</string>
+    <string name="detail_type">Tipo</string>
+    <string name="detail_origin">Origen</string>
+    <string name="detail_last_known_location">Última ubicación conocida</string>
+    <string name="detail_episodes">Episodios</string>
+
+    <!-- Etiquetas de filas en detalle de episodio -->
+    <string name="detail_air_date">Fecha de emisión</string>
+    <string name="detail_characters">Personajes</string>
+
+    <!-- Etiquetas de filas en detalle de ubicación -->
+    <string name="detail_dimension">Dimensión</string>
+    <string name="detail_residents">Residentes</string>
+
+    <!-- Etiquetas de estado del personaje -->
+    <string name="status_alive">Vivo</string>
+    <string name="status_dead">Muerto</string>
+    <string name="status_unknown">Desconocido</string>
+</resources>
+

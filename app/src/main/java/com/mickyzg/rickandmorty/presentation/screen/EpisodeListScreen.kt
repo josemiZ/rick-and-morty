@@ -38,6 +38,8 @@ import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.episodeList.EpisodeListAction
 import com.mickyzg.rickandmorty.presentation.viewmodel.episodeList.EpisodeListUiState
 import com.mickyzg.rickandmorty.ui.theme.RickAndMortyTheme
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 private const val LOAD_MORE_THRESHOLD = 4
 
@@ -69,7 +71,7 @@ fun EpisodeListScreen(
     Scaffold(
         topBar = {
             Column {
-                TopAppBar(title = { Text("Episodes") })
+                TopAppBar(title = { Text(stringResource(R.string.nav_episodes)) })
                 OutlinedTextField(
                     value = uiState.searchQuery,
                     onValueChange = { onAction(EpisodeListAction.SearchQueryChanged(it)) },
@@ -78,7 +80,7 @@ fun EpisodeListScreen(
                     trailingIcon = {
                         if (uiState.searchQuery.isNotEmpty()) {
                             IconButton(onClick = { onAction(EpisodeListAction.SearchQueryChanged("")) }) {
-                                Icon(Icons.Default.Close, contentDescription = "Clear search")
+                                Icon(Icons.Default.Close, contentDescription = stringResource(R.string.cd_clear_search))
                             }
                         }
                     },
@@ -101,9 +103,9 @@ fun EpisodeListScreen(
                     ErrorContent(message = uiState.error, onRetry = { onAction(EpisodeListAction.Retry) })
                 uiState.episodes.isEmpty() ->
                     EmptyContent(
-                        title = "No episodes found",
+                        title = stringResource(R.string.empty_episodes_title),
                         subtitle = if (uiState.searchQuery.isNotBlank())
-                            "No results for \"${uiState.searchQuery}\"" else "Pull down to load episodes."
+                            stringResource(R.string.empty_no_results, uiState.searchQuery) else stringResource(R.string.empty_pull_to_load_episodes)
                     )
                 else -> LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
                     items(items = uiState.episodes, key = { it.id }) { episode ->

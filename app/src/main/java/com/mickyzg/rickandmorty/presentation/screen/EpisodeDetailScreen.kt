@@ -32,6 +32,8 @@ import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.episodeDetail.EpisodeDetailAction
 import com.mickyzg.rickandmorty.presentation.viewmodel.episodeDetail.EpisodeDetailUiState
 import com.mickyzg.rickandmorty.ui.theme.RickAndMortyTheme
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,10 +48,10 @@ fun EpisodeDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(episode?.name ?: "Episode") },
+                title = { Text(episode?.name ?: stringResource(R.string.title_episode)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.cd_back))
                     }
                 }
             )
@@ -82,12 +84,12 @@ fun EpisodeDetailScreen(
                     Spacer(Modifier.height(16.dp))
                     HorizontalDivider()
                     Spacer(Modifier.height(12.dp))
-                    EpisodeDetailRow("Air date", episode.airDate)
-                    episode.characterUrls?.let { EpisodeDetailRow("Characters", it.size.toString()) }
+                    EpisodeDetailRow(stringResource(R.string.detail_air_date), episode.airDate)
+                    episode.characterUrls?.let { EpisodeDetailRow(stringResource(R.string.detail_characters), it.size.toString()) }
                     if (uiState.isLoading) { Spacer(Modifier.height(8.dp)); LoadingIndicator() }
                 }
             }
-            else -> EmptyContent(title = "Episode not found")
+            else -> EmptyContent(title = stringResource(R.string.empty_episode_not_found))
         }
     }
 }

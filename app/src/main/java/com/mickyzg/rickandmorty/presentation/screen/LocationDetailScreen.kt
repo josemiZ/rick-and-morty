@@ -32,6 +32,8 @@ import com.mickyzg.rickandmorty.presentation.screen.preview.ThemePreviews
 import com.mickyzg.rickandmorty.presentation.viewmodel.locationDetail.LocationDetailAction
 import com.mickyzg.rickandmorty.presentation.viewmodel.locationDetail.LocationDetailUiState
 import com.mickyzg.rickandmorty.ui.theme.RickAndMortyTheme
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,10 +48,10 @@ fun LocationDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(location?.name ?: "Location") },
+                title = { Text(location?.name ?: stringResource(R.string.title_location)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.cd_back))
                     }
                 }
             )
@@ -77,13 +79,13 @@ fun LocationDetailScreen(
                     Spacer(Modifier.height(16.dp))
                     HorizontalDivider()
                     Spacer(Modifier.height(12.dp))
-                    if (location.type.isNotBlank()) LocationDetailRow("Type", location.type)
-                    if (location.dimension.isNotBlank()) LocationDetailRow("Dimension", location.dimension)
-                    location.residentUrls?.let { LocationDetailRow("Residents", it.size.toString()) }
+                    if (location.type.isNotBlank()) LocationDetailRow(stringResource(R.string.detail_type), location.type)
+                    if (location.dimension.isNotBlank()) LocationDetailRow(stringResource(R.string.detail_dimension), location.dimension)
+                    location.residentUrls?.let { LocationDetailRow(stringResource(R.string.detail_residents), it.size.toString()) }
                     if (uiState.isLoading) { Spacer(Modifier.height(8.dp)); LoadingIndicator() }
                 }
             }
-            else -> EmptyContent(title = "Location not found")
+            else -> EmptyContent(title = stringResource(R.string.empty_location_not_found))
         }
     }
 }

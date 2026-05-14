@@ -21,6 +21,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.mickyzg.rickandmorty.R
+import androidx.compose.ui.res.stringResource
 
 /**
  * Full-screen error state shown when [items] is empty and a network error occurred.
@@ -53,7 +55,7 @@ fun ErrorContent(
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = "Something went wrong",
+                text = stringResource(R.string.error_something_went_wrong),
                 style = MaterialTheme.typography.titleMedium
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -65,7 +67,7 @@ fun ErrorContent(
             )
             Spacer(modifier = Modifier.height(24.dp))
             Button(onClick = onRetry) {
-                Text("Retry")
+                Text(stringResource(R.string.error_retry))
             }
         }
     }
