@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Launcher theme used only during cold start before Compose takes over.
+        All UI is rendered via MaterialTheme (Material3) inside Compose,
+        which also handles dark mode and dynamic color (Material You).
+    -->
+    <style name="Theme.RickAndMorty" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

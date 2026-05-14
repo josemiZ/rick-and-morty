@@ -1,0 +1,25 @@
+# Module-level ignores for :app
+# Most build artifacts are already covered by the root .gitignore.
+
+# Build outputs
+/build/
+
+# Generated source folders (KSP, Hilt, Room schemas-as-source if any)
+/build/generated/
+
+# Test outputs (also under build/, listed for clarity)
+/build/reports/
+/build/test-results/
+
+# Local module configuration (if any)
+local.properties
+
+# Release artifacts
+/release/
+
+# ProGuard / R8
+/proguard/
+
+# Room exported schemas — KEEP these committed (do NOT ignore)
+# /schemas/   ← intentionally tracked: required for migration tests
+
